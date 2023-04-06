@@ -14,11 +14,12 @@ screen = Screen()
 screen.tracer(0)  # keep screen from self updating
 screen.bgcolor("black")
 screen.setup(width=1600, height=900)
+screen.title("Pong")
 
 # show start screen for 3 seconds
 start_screen = Start_Screen()
 screen.update()
-time.sleep(3)
+# time.sleep(3)
 start_screen.clear()
 
 # set up game
@@ -70,12 +71,12 @@ while game_is_on:
 
     # detect collision with paddle
     if ball.xcor() > 740:
-        difference = paddle_right.paddle[0].ycor() - ball.ycor()
-        if -10 < difference < 100:
+        difference = paddle_right.ycor() - ball.ycor()
+        if -50 < difference < 50:
             ball.bounce_from_paddle(difference, "right")
     if ball.xcor() < -750:
-        difference = paddle_left.paddle[0].ycor() - ball.ycor()
-        if -10 < difference < 100:
+        difference = paddle_left.ycor() - ball.ycor()
+        if -50 < difference < 50:
             ball.bounce_from_paddle(difference, "left")
     # detect ball collision with side walls
     if ball.xcor() > 780:

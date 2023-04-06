@@ -30,13 +30,12 @@ class Ball(Turtle):
     # calculate new angle if ball hits paddle
     # difference: way between first paddle segment and ball
     def bounce_from_paddle(self, difference, paddle_position):
-        middle = difference - 45  # get middle of pannel
+        # middle = difference - 45  # get middle of pannel
         if paddle_position == "right":
-            new_heading = middle + 180
+            new_heading = difference + 180
         else:
-            new_heading = middle * -1
+            new_heading = difference * -1
         self.hits += 1
-        print(self.hits)
         self.setheading(new_heading)
         self.move_ball()
 
